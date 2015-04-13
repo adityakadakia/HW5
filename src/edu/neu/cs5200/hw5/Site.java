@@ -32,13 +32,12 @@ public class Site implements Serializable {
 
 	
 	
-	public Site(double latitude, double longitude, String name) {
+	/*public Site(double latitude, double longitude, String name) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.name = name;
-		this.towers = towers;
-	}
+	}*/
 
 	public Site() {
 	}
@@ -75,26 +74,26 @@ public class Site implements Serializable {
 		this.name = name;
 	}
 
-	public List<Tower> getTowers() {
-		return this.towers;
-	}
-
-	public void setTowers(List<Tower> towers) {
-		this.towers = towers;
-	}
-
-	public Tower addTower(Tower tower) {
-		getTowers().add(tower);
-		tower.setSite(this);
-
-		return tower;
-	}
-
-	public Tower removeTower(Tower tower) {
-		getTowers().remove(tower);
-		tower.setSite(null);
-
-		return tower;
-	}
+//	public List<Tower> getTowers() {
+//		return this.towers;
+//	}
+//
+//	public void setTowers(List<Tower> towers) {
+//		this.towers = towers;
+//	}
+//
+//	public Tower addTower(Tower tower) {
+//		getTowers().add(tower);
+//		tower.setSite(this);
+//
+//		return tower;
+//	}
+//
+//	public Tower removeTower(Tower tower) {
+//		getTowers().remove(tower);
+//		tower.setSite(null);
+//
+//		return tower;
+//	}
 
 }

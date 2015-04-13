@@ -1,6 +1,7 @@
 	package edu.neu.cs5200.hw5;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 
@@ -26,7 +27,7 @@ public class Equipment implements Serializable {
 	private double price;
 
 	//bi-directional many-to-one association to Tower
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="towerId")
 	private Tower tower;
 

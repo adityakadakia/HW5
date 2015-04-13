@@ -1,13 +1,20 @@
 package edu.neu.cs5200.hw5;
 
 import java.util.*;
-import javax.persistence.*;
 
+import javax.persistence.*;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+
+@Path("site")
 public class SiteDAO {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("HomeWork5");
 	EntityManager em = null;
 	
-	public Site findSite(int siteId) {
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Site findSite(@PathParam("id") int siteId) {
 		Site site = null;
 		
 		em = factory.createEntityManager();
@@ -21,6 +28,9 @@ public class SiteDAO {
 		return site;
 	}
 	
+	@GET
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Site> findAllSites(){
 		List<Site> sites = new ArrayList<Site>();
 		
@@ -36,8 +46,12 @@ public class SiteDAO {
 		return sites;
 
 	}
-
-	public List<Site> updateSite(int siteId, Site site){
+	
+	@PUT
+	@Path("/{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Site> updateSite(@PathParam("id") int siteId, Site site){
 		List<Site> sites = new ArrayList<Site>();
 
 		em = factory.createEntityManager();
@@ -54,8 +68,11 @@ public class SiteDAO {
 		return sites;
 
 	}
-
-	public List<Site> removeSite(int siteId){
+	
+	@DELETE
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Site> removeSite(@PathParam("id") int siteId){
 		List<Site> sites = new ArrayList<Site>();
 		Site site = null;
 		
@@ -74,7 +91,11 @@ public class SiteDAO {
 		return sites;
 
 	}
-
+	
+	@POST
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Site> createSite(Site site){
 		List<Site> sites = new ArrayList<Site>();
 

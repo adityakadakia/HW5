@@ -1,7 +1,9 @@
 package edu.neu.cs5200.hw5;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -29,7 +31,7 @@ public class Tower implements Serializable {
 	private List<Equipment> equipments;
 
 	//bi-directional many-to-one association to Site
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="siteId")
 	private Site site;
 
