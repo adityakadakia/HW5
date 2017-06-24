@@ -1,4 +1,4 @@
-# Get Started With JPA and JWS
+# JPA and JWS for beginners
 * Java Persistence API 
 * Java Web Services
 * Servlet 
